@@ -1,0 +1,27 @@
+name: 'hello-world-java-action'
+description: 'Greet someone'
+
+branding:
+  icon: 'heart'
+  color: 'purple'
+
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: false
+    default: 'World'
+
+outputs:
+  random-number:
+    description: 'Random number'
+    value: ${{ steps.java.outputs.random-number }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Launch Single-File Source-Code Program'
+      id: java
+      shell: bash
+      run: |
+        echo "::set-output name=random-number::SOME-INITIAL-VALUE-TO-MAKE-THE-ACTION-YAML-PARSER-HAPPY"
+        "${JAVA_HOME_11_X64}/bin/java" "${GITHUB_ACTION_PATH}/Action.java" "${{ inputs.who-to-greet }}"
