@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag SampleJava:$(date +%s)
+      run: docker build . --file Dockerfile --tag maven:3.8.5-openjdk-18:$(date +%s)
