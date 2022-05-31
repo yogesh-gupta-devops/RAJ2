@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:    
-    runs-on: Zorin
+    runs-on: Zorin OS 16.1
     steps:
       - name: Reset Permissions before deployment
         uses: appleboy/ssh-action@master
